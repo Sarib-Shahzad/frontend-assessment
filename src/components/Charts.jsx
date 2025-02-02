@@ -18,6 +18,7 @@ import { LineChart } from './common/LineChart';
 
 const Charts = () => {
   const [charts, setCharts] = useState([]);
+  const [isUpdated, setIsUpdated] = useState(false);
 
   const fetchCharts = async () => {
     const { data, error } = await supabase
@@ -59,6 +60,7 @@ const Charts = () => {
               .eq('id', chart.id);
           })
         );
+        setIsUpdated(false);
       } catch (error) {
         console.error('Error updating chart order in Supabase:', error);
       }
@@ -80,7 +82,7 @@ const Charts = () => {
   }, []);
 
   useEffect(() => {
-    if (charts.length > 0) {
+    if (!isUpdated && charts.length > 0) {
       const updatedCharts = charts.map((chart) => ({
         ...chart,
         data: {
@@ -99,8 +101,9 @@ const Charts = () => {
       }));
 
       setCharts(updatedCharts);
+      setIsUpdated(true);
     }
-  }, [charts.length]);
+  }, [charts, isUpdated]);
 
   return (
     <DndContext
