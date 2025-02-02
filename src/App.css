@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply p-0 m-0;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  @apply h-full;
+}
+
+body {
+  @apply bg-white text-black font-openSans font-normal;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  scroll-snap-type: y proximity;
+}
+
+.container {
+  @apply px-4;
+}
+
+.btn-group {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.svg-funnel-js {
+  display: inline-block;
+  position: relative;
+}
+
+.svg-funnel-js svg {
+  display: block;
+}
+
+.svg-funnel-js__labels {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.svg-funnel-js__labels.svg-funnel-js--vertical {
+  flex-direction: column;
+}
+
+.svg-funnel-js__label {
+  flex: 1;
+  position: relative;
+}
+
+.svg-funnel-js__label:nth-child(1) .label__value::after {
+  content: " views";
+}
+
+.svg-funnel-js__label:nth-child(2) .label__value::after {
+  content: " views";
+}
+
+.svg-funnel-js__label:nth-child(3) .label__value::after {
+  content: "leads";
+}
+
+.label__title {
+  color: #22031F;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 10px;
+  margin-bottom: 0.375rem;
+  order: 1;
+}
+
+@media (min-width: 768px) {
+  .label__title {
+    font-size: 0.75rem;
+  }
+}
+
+.label__value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #22031F;
+  margin-bottom: 0.375rem;
+  order: 2;
+  position: relative;
+  width: min-content;
+}
+
+@media (min-width: 768px) {
+  .label__value {
+    font-size: 1.5rem;
+  }
+}
+
+.label__value::after {
+  position: absolute;
+  bottom: 0;
+  right: -45px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #22031F;
+}
+
+@media (min-width: 768px) {
+  .label__value::after {
+    bottom: 0.125rem;
+    right: -50px;
+  }
+}
+
+.label__percentage {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #22031F;
+}
+
+.svg-funnel-js--vertical {
+  padding-left: 120px;
+  padding-right: 1rem;
+}
+
+.svg-funnel-js--vertical .svg-funnel-js__label {
+  padding-top: 1.5rem;
+}
+
+.svg-funnel-js--vertical .label__segment-percentages {
+  margin-top: 0;
+  margin-left: 106px;
+  width: calc(100% - 106px);
+}
+
+.svg-funnel-js:not(.svg-funnel-js--vertical) {
+  padding-top: 120px;
+}
+
+.svg-funnel-js:not(.svg-funnel-js--vertical) .svg-funnel-js__label {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .svg-funnel-js:not(.svg-funnel-js--vertical) .svg-funnel-js__label {
+    padding-left: 1.5rem;
+  }
+}
+
+.svg-funnel-js:not(.svg-funnel-js--vertical) .svg-funnel-js__label:not(:first-child) {
+  border-left: 1px solid #d4d4d8;
+}
+
+.svg-funnel-js__container {
+  width: 100%;
+  height: 100%;
+}
+
+
+.btn.default {
+  background-color: transparent;
+  color: #22031F;
+}
+
+.btn.primary {
+  background-color: #005bc4;
+  color: white;
+}
+
+.btn.secondary {
+  background-color: #042f2e;
+  color: white;
+}
+
+.btn.small {
+  font-size: 1rem;
+  padding: 0.375rem 1rem;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
